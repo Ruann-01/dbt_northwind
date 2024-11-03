@@ -8,6 +8,7 @@ models:
           description: Unique ID for this table
           tests:
             - unique:
+                #column_name: "order_id||product_id"
                 config:
                   warn_if: ">200"
                   error_if: ">700"
