@@ -2,9 +2,17 @@ version: 2
 
 sources:
   - name: northwind
+    description: Data from northwind ERP
     database: curso-etl-101 
     schema: erp_northwind  
     tables:
       - name: orders
+        description: This table list the orders from ERP Northwind 
+        columns:
+          - name: order_id
+            description: Unique ID for this table
       - name: customers
+        columns:
+          - name: customer_id
+            description: Unique ID for this table
       - name: order_details
