@@ -7,12 +7,29 @@ sources:
     schema: erp_northwind  
     tables:
       - name: orders
-        description: This table list the orders from ERP Northwind 
+        description: '{{ doc("orders_docs") }}'
         columns:
           - name: order_id
             description: Unique ID for this table
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            tests:
+              - relationships:
+                  field: customer_id
+                  to: ref('stg_customers')
+      
       - name: customers
+        description: This table lists the customers from ERP Northwind 
         columns:
           - name: customer_id
             description: Unique ID for this table
+
       - name: order_details
+        description: This table contains the order details from ERP Northwind
+        columns:
+          - name: order_id
+            description: Unique ID for orders
+          - name: product_id
+            description: ID of the product in the order
